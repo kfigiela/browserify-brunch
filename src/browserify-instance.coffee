@@ -28,10 +28,7 @@ class BrowserifyInstance
     @data.bundleOptions.debug ?= !@data.main.production
     @__w.bundle @data.bundleOptions, (error, js) =>
       if error or not js?
-        if not @data.main.watching
-          throw error
-
-        console.error 'Browserify Error', error
+        @running = false;
         callback? error || true, fileContents, filePath
         return
 
