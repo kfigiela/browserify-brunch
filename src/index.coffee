@@ -91,6 +91,9 @@ module.exports = class BrowserifyBrunch
 
     callback(null, fileContents, filePath) if not __triggered
     null
+    
+  onCompile: ->
+    @__autoReloadServer?.sendMessage 'page'
 
   teardown: ->
     @__autoReloadServer?.teardown()

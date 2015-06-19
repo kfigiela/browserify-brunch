@@ -29,6 +29,7 @@ class BrowserifyInstance
     @__w.bundle @data.bundleOptions, (error, js) =>
       if error or not js?
         @running = false;
+        console.log error
         callback? error || true, fileContents, filePath
         return
 
